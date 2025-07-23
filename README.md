@@ -12,6 +12,6 @@ npm run dev
 
 ![Vercel Deploy](https://deploy-badge.vercel.app/vercel/ra-homeworks-3-1/alextupicyn)
 
-Ссылка на публичную страницу: 
+Ссылка на публичную страницу: https://ra-homeworks-3-1-psi.vercel.app/
 
 
