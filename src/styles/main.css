@@ -1,0 +1,337 @@
+@import url("//fonts.googleapis.com/css?family=Work+Sans:300,400,600");
+
+/* === ROOT VARIABLES === */
+:root {
+    --primary-color: #9c9489;
+    --accent-color: #9c9489;
+    --accent-color-r: 255;
+    --accent-color-g: 107;
+    --accent-color-b: 107;
+    --text-color: #6f6f6f;
+    --bg-color: #fdfaf6;
+    --card-bg: #fff;
+    --border-color: #ddd;
+    --transition: 0.3s ease;
+}
+
+/* === BASE STYLES === */
+body {
+    background: var(--bg-color);
+    margin: 0;
+    padding: 30px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Work Sans", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    box-sizing: border-box;
+}
+
+/* === LAYOUT CONTAINERS === */
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px 30px;
+    max-width: 1400px;
+    width: 100%;
+    padding: 30px;
+    margin-top: 29.1px;
+}
+
+/* === CARD COMPONENT === */
+.movie-card {
+    width: 90%;
+    display: flex;
+    padding: 48px 28.5px 28.5px 21.5px;
+    border-radius: 24px;
+    background: var(--card-bg);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    position: relative;
+    align-items: flex-start;
+    padding-top: 20px;
+    transition: box-shadow var(--transition), transform var(--transition);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.movie-card:hover {
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+}
+
+/* === IMAGE SECTION === */
+.movie-image-section {
+    flex-shrink: 0;
+    position: relative;
+    width: 45%;
+    max-width: 260px;
+    margin-top: -60px;
+}
+
+.image-frame {
+    width: 72%;
+    padding-bottom: 95%;
+    border: 4px solid var(--border-color);
+    border-radius: 16px;
+    position: absolute;
+    top: -30px;
+    left: -2px;
+    background-color: #fafafa;
+}
+
+.movie-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 14px;
+}
+
+/* === GENRE BADGES === */
+.genre-badge {
+    position: absolute;
+    top: 11.75px;
+    right: -40px;
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 2;
+}
+
+.genre-badge.action { background: #ff9910; }
+.genre-badge.western { background: #865343; }
+.genre-badge.fantasy { background: #7E57C2; }
+.genre-badge.drama { background: #42A5F5; }
+.genre-badge.comedy { background: #FFC107; }
+.genre-badge.horror { background: #C62828; }
+.genre-badge.other { background: #9E9E9E; }
+
+/* === CONTENT SECTION === */
+.movie-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 12px;
+    min-width: 0;
+    margin-left: -50px;
+}
+
+.movie-title {
+    margin: 20px 0 14px 0;
+    font-size: clamp(30px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--text-color);
+    word-break: break-word;
+    margin-top: 27.5px;
+    letter-spacing: -0.025em;
+}
+
+/* === ACTION BUTTONS === */
+.top-actions {
+    position: absolute;
+    top: 0;
+    right: -12px;
+    display: flex;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 46px;
+    height: 46px;
+    border: none;
+    background: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform var(--transition);
+}
+
+.icon-button:hover {
+    transform: scale(1.15);
+}
+
+.heart-button {
+    margin-right: -16.5px;
+}
+
+.bottom-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.buy-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 162.5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 130px;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+    background-color: #6f6f6f;
+}
+
+.details-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 12px 16px;
+    transition: color var(--transition);
+    font-weight: 600;
+    margin-left: -12px;
+}
+
+.details-button:hover {
+    color: #6f6f6f;
+}
+
+.arrow {
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+/* === RATING STARS === */
+.card-body-stars {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    gap: 4px;
+}
+
+.card-body-stars li {
+    display: inline-block;
+}
+
+/* === UTILITY CLASSES === */
+.u-clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === ADAPTABILITY === */
+@media (max-width: 1024px) {
+    .movies-container {
+        gap: 35px 20px;
+        padding: 20px;
+        margin-left: -18.25px;
+    }
+
+    .movie-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0px 30px 30px;
+    }
+
+    .movie-image-section {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 20px;
+        position: relative;
+    }
+
+    .image-frame {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        left: 0;
+        top: 0;
+        margin-left: -20px;
+        }
+
+    .genre-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+
+    .movie-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-actions {
+        justify-content: center;
+        position: relative;
+        margin: -25px 20.5px -25px 0px;
+    }
+
+    .bottom-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .buy-button {
+        background-color: #ff5722;
+        color: #fff;
+    }
+
+    .buy-button:hover {
+        background-color: #e64a19;
+    }
+
+    .details-button {
+        background-color: #607d8b;
+        color: #fff;
+        margin-left: -1px;
+        text-align: center;
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .details-button:hover {
+        background-color: #455a64;
+    }
+
+    .buy-button,
+    .details-button {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .card-body-stars {
+        justify-content: center;
+    }
+}
